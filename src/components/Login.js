@@ -1,6 +1,11 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "./utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "./utils/firebase";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -14,8 +19,51 @@ const Login = () => {
   };
   const handleButtonClick = () => {
     // validate form data
-    const message = checkValidData(email.current.value, password.current.value);
-    setErrorMessage(message);
+    const emailValue = email.current.value;
+    const passwordValue = password.current.value;
+    const firstNameValue =
+      (firstName.current && firstName.current.value) || null;
+    const lastNameValue = (lastName.current && lastName.current.value) || null;
+    const message = checkValidData(
+      emailValue,
+      passwordValue,
+      firstNameValue,
+      lastNameValue
+    );
+
+    if (message !== null) {
+      setErrorMessage(message);
+      return;
+    }
+    if (!isSignInForm) {
+      console.log("Sign Up Clicked");
+      createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage + "-" + errorCode);
+          // ..
+        });
+    } else {
+      signInWithEmailAndPassword(auth, emailValue, passwordValue)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage + "-" + errorCode);
+        });
+    }
   };
   return (
     <div>
