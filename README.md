@@ -31,3 +31,7 @@
 - NetflixGPT
   - Search Bar
   - Movie Suggessions
+
+# Hosting URL
+
+- https://netflixgpt-7a0cc.web.app/
