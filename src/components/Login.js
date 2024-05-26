@@ -91,7 +91,7 @@ const Login = () => {
         }}
       >
         <h1 className="font-bold text-3xl py-4">
-          {isSignInForm ? { SIGN_IN } : { SIGN_UP }}
+          {isSignInForm ? SIGN_IN : SIGN_UP}
         </h1>
 
         {!isSignInForm && (
@@ -127,7 +127,7 @@ const Login = () => {
           className="p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
         >
-          {isSignInForm ? { SIGN_IN } : { SIGN_UP }}
+          {isSignInForm ? SIGN_IN : SIGN_UP}
         </button>
         <p onClick={toggleSignInForm} className="cursor-pointer">
           {isSignInForm
