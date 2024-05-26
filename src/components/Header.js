@@ -31,7 +31,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="w-full absolute px-8 py-2 bg-gradient-to-b from-transparent to-black z-10 flex justify-between">
+    <div className="w-full absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img alt="Netflix Logo" className="logo w-32" src={LOGO} />
       {user && (
         <div className="flex items-center p-2">
