@@ -28,6 +28,7 @@
 - Update store with trailer video data
 - Embeded youtube video and make it auto play
 - add tailwind class to make main container better
+- Build secondary component (Movie list)
 
 # Features
 
