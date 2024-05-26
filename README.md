@@ -29,6 +29,10 @@
 - Embeded youtube video and make it auto play
 - add tailwind class to make main container better
 - Build secondary component (Movie list)
+- Multilanguage feature
+- Gpt Search page
+- GPT Search Bar
+- Slice for language support
 
 # Features
 
