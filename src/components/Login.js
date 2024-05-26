@@ -7,7 +7,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "./utils/firebase";
-import { USER_AVATAR } from "./utils/Constant";
+import { BG_URL, USER_AVATAR, SIGN_IN, SIGN_UP } from "./utils/Constant";
 import { useDispatch } from "react-redux";
 import { addUser } from "./utils/userSlice";
 const Login = () => {
@@ -82,10 +82,7 @@ const Login = () => {
     <div>
       <Header></Header>
       <div className="absolute">
-        <img
-          alt="main"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/ca15fd28-b624-4852-8bfe-9cdd5c88475d/IN-en-20240520-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-        ></img>
+        <img alt="main" src={BG_URL}></img>
       </div>
       <form
         className="w-1/3 absolute p-12 bg-black mx-auto right-0 my-36 left-0 text-white bg-opacity-80"
@@ -94,7 +91,7 @@ const Login = () => {
         }}
       >
         <h1 className="font-bold text-3xl py-4">
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm ? { SIGN_IN } : { SIGN_UP }}
         </h1>
 
         {!isSignInForm && (
@@ -130,7 +127,7 @@ const Login = () => {
           className="p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm ? { SIGN_IN } : { SIGN_UP }}
         </button>
         <p onClick={toggleSignInForm} className="cursor-pointer">
           {isSignInForm
