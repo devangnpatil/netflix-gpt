@@ -79,10 +79,10 @@ const Login = () => {
     }
   };
   return (
-    <div>
+    <div className="">
       <Header></Header>
-      <div className="absolute">
-        <img alt="main" src={BG_URL} className="h-screen object-cover"></img>
+      <div className="absolute ">
+        <img alt="main" src={BG_URL} className="object-cover"></img>
       </div>
       <form
         className="w-full md:w-5/12 absolute p-12 bg-black mx-auto right-0 my-36 left-0 text-white bg-opacity-80"
